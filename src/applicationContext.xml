@@ -128,11 +128,17 @@
         
         <property name="filterChainDefinitions">
             <value>
+       
                 /login.jsp = anon
-                
+                /shiro/login = anon
+              #  /shiro/logout = logout
 
+               # /user.jsp = roles[user]
+               # /admin.jsp = roles[admin]
+                
                 # everything else requires authentication:
                 /** = authc
+                /list.jsp = anon
             </value>
         </property>
       
