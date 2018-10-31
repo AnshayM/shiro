@@ -40,24 +40,35 @@ public class ShiroRealm extends AuthenticatingRealm {
 		// 1). principal: 认证的实体信息. 可以是 username, 也可以是数据表对应的用户的实体类对象.
 		Object principal = username;
 		// 2). credentials: 密码.
-		Object credentials = "fc1709d0a95a6be30bc5926fdb7f22f4";
+		Object credentials = null;
+		if ("admin".equals(username)) {
+			credentials = "038bdaf98f2037b31f1e75b5b4c9b26e";
+		} else if ("user".equals(username)) {
+			credentials = "098d2c478e9c11555ce2823231e02ec1";
+		}
+
 		// 3). realmName: 当前 realm 对象的 name. 调用父类的 getName() 方法即可
 		String realmName = getName();
+		// 4).盐值(这里使用用户名，因为用户名是唯一的)
+		ByteSource credentialsSalt = ByteSource.Util.bytes(username);
 
-		SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(principal, credentials, realmName);
+		SimpleAuthenticationInfo info = null;// new SimpleAuthenticationInfo(principal, credentials, realmName);
+		info = new SimpleAuthenticationInfo(principal, credentials, credentialsSalt, realmName);
 
 		return info;
 	}
 
 	/**
 	 * 测试加密1024次后结果： 不加盐--fc1709d0a95a6be30bc5926fdb7f22f4
+	 * 加盐admin：038bdaf98f2037b31f1e75b5b4c9b26e
+	 * user：098d2c478e9c11555ce2823231e02ec1
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		String hashAlgorithmName = "MD5";
 		Object credentials = "123456";
-		Object salt = null;
+		Object salt = "admin";
 		int hashIterations = 1024;
 
 		Object result = new SimpleHash(hashAlgorithmName, credentials, salt, hashIterations);
