@@ -14,6 +14,8 @@
 				<ref bean="secondRealm" />
 			</list>
 		</property>
+		<!-- 记住我功能 -->
+	<!-- 	<property name="rememberMeManager.cookie.maxAge" value="10"></property> -->
 	</bean>
 
 
@@ -29,7 +31,8 @@
 		class="org.apache.shiro.authc.pam.ModularRealmAuthenticator">
 		<!-- 认证策略 -->
 		<property name="authenticationStrategy">
-			<bean class="org.apache.shiro.authc.pam.AtLeastOneSuccessfulStrategy"></bean>
+			<bean
+				class="org.apache.shiro.authc.pam.AtLeastOneSuccessfulStrategy"></bean>
 		</property>
 	</bean>
 

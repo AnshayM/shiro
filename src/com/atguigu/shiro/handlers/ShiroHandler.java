@@ -25,7 +25,7 @@ public class ShiroHandler {
 		if (!currentUser.isAuthenticated()) {
 			// 把用户名和密码封装为UsernamePasswordToken对象
 			UsernamePasswordToken token = new UsernamePasswordToken(username, password);
-			// rememberMe
+			// 设置记住密码
 			token.setRememberMe(true);
 			try {
 				// 执行登陆
