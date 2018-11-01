@@ -82,9 +82,6 @@
 
 		<property name="filterChainDefinitionMap"
 			ref="filterChainDefinitionMap"></property>
-
-		
-
 	</bean>
 
 	<!-- 配置一个 bean, 该 bean 实际上是一个 Map. 通过实例工厂方法的方式 -->
