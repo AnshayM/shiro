@@ -1,3 +1,6 @@
+1. 授权需要继承AuthorizingRealm类， 并实现其dogetAuthorizationInfo方法
+2. AuthorizingRealm继承自AuthenticationRealm，但没有实现AuthenticationRealm中的dogetAuthenticationInfo方法，
+所以认证和授权只需要继承AuthorizingRealm就可以了。同时实现他的两个方法。
 
 
 1. 为什么使用md5盐值加密：我们希望密码相同时也能有所区别。

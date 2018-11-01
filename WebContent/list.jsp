@@ -14,15 +14,15 @@
 	
 	Welcome: <shiro:principal></shiro:principal>
 	
-	<shiro:hasRole name="admin">
+	<shiro:hasRole name="admin"></shiro:hasRole>
 	<br><br>
 	<a href="admin.jsp">Admin Page</a>
-	</shiro:hasRole>
 	
-	<shiro:hasRole name="user">
+	
+	<shiro:hasRole name="user">	</shiro:hasRole>
 	<br><br>
 	<a href="user.jsp">User Page</a>
-	</shiro:hasRole>
+
 	
 	<br><br>
 	<a href="shiro/testShiroAnnotation">Test ShiroAnnotation</a>
